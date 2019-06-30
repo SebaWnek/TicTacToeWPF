@@ -189,6 +189,7 @@ namespace TicTacToeWPF
             Score = new int[] { 0, 0 };
             GameCounter = 0;
             MainWindow.GameMapInterface.Clear();
+            gameMap = new int[3, 3];
         }
     }
 }

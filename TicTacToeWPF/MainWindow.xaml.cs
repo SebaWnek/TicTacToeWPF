@@ -31,6 +31,8 @@ namespace TicTacToeWPF
         
         public static ManualResetEvent mre = new ManualResetEvent(false);
 
+        Thread t;
+
         Game game;
 
         public MainWindow()
@@ -43,35 +45,55 @@ namespace TicTacToeWPF
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            var t = new Thread(Game.InitializeGame);
-            t.Start(new String[] { playerOTypeBox.Text, playerXTypeBox.Text, gameTypeBox.Text });
-            if (gameTypeBox.Text == "Continuous")
+            if (t == null || !t.IsAlive)
             {
-                stopButton.IsEnabled = true; 
+                foreach (Button button in gameButtonsGrid.Children)
+                {
+                    button.IsEnabled = true;
+                }
+                t = new Thread(Game.InitializeGame);
+                t.Start(new String[] { playerOTypeBox.Text, playerXTypeBox.Text, gameTypeBox.Text });
+                if (gameTypeBox.Text == "Continuous")
+                {
+                    stopButton.IsEnabled = true;
+                }
+                resetButton.IsEnabled = true; 
             }
-            resetButton.IsEnabled = true;
         }
 
         private void GameButton_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = sender as Button;
-            pressed[1] = byte.Parse(clickedButton.Name[6].ToString());
-            pressed[0] = byte.Parse(clickedButton.Name[7].ToString());
-            pressed[0]--;
-            pressed[1]--;
-            mre.Set();
-            mre.Reset();
+            if (clickedButton.Content.ToString() == " ")
+            {
+                pressed[1] = byte.Parse(clickedButton.Name[6].ToString());
+                pressed[0] = byte.Parse(clickedButton.Name[7].ToString());
+                pressed[0]--;
+                pressed[1]--;
+                mre.Set();
+                mre.Reset(); 
+            }
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
             Game.SeamlessPlay = false;
+            foreach (Button button in gameButtonsGrid.Children)
+            {
+                button.IsEnabled = false;
+            }
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             resetButton.IsEnabled = false;
             Game.ResetGame();
+            game = new Game();
+            t.Abort();
+            foreach (Button button in gameButtonsGrid.Children)
+            {
+                button.IsEnabled = false;
+            }
         }
     }
 }

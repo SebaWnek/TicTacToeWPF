@@ -60,7 +60,7 @@
                 <ComboBoxItem Content="Continuous"/>
             </ComboBox>
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="gameButtonsGrid">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -71,15 +71,15 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="button11" Grid.Row="0" Grid.Column="0" Content="{Binding Path=GameMapInterface[0]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button12" Grid.Row="0" Grid.Column="1" Content="{Binding Path=GameMapInterface[1]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button13" Grid.Row="0" Grid.Column="2" Content="{Binding Path=GameMapInterface[2]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button21" Grid.Row="1" Grid.Column="0" Content="{Binding Path=GameMapInterface[3]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button22" Grid.Row="1" Grid.Column="1" Content="{Binding Path=GameMapInterface[4]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button23" Grid.Row="1" Grid.Column="2" Content="{Binding Path=GameMapInterface[5]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button31" Grid.Row="2" Grid.Column="0" Content="{Binding Path=GameMapInterface[6]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button32" Grid.Row="2" Grid.Column="1" Content="{Binding Path=GameMapInterface[7]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
-            <Button x:Name="button33" Grid.Row="2" Grid.Column="2" Content="{Binding Path=GameMapInterface[8]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button11" Grid.Row="0" Grid.Column="0" Content="{Binding Path=GameMapInterface[0]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button12" Grid.Row="0" Grid.Column="1" Content="{Binding Path=GameMapInterface[1]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button13" Grid.Row="0" Grid.Column="2" Content="{Binding Path=GameMapInterface[2]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button21" Grid.Row="1" Grid.Column="0" Content="{Binding Path=GameMapInterface[3]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button22" Grid.Row="1" Grid.Column="1" Content="{Binding Path=GameMapInterface[4]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button23" Grid.Row="1" Grid.Column="2" Content="{Binding Path=GameMapInterface[5]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button31" Grid.Row="2" Grid.Column="0" Content="{Binding Path=GameMapInterface[6]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button32" Grid.Row="2" Grid.Column="1" Content="{Binding Path=GameMapInterface[7]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
+            <Button x:Name="button33" Grid.Row="2" Grid.Column="2" Content="{Binding Path=GameMapInterface[8]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Window>
