@@ -1,0 +1,85 @@
+﻿<Window x:Class="TicTacToeWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TicTacToeWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="400">
+    <Grid>
+        <Grid.Resources>
+            <local:Game x:Key="gameDataSource"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <Label Content="Player O:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="80"/>
+                <TextBox x:Name="playerOBox" IsEnabled="False" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40"
+                         Text="{Binding Source={StaticResource gameDataSource}, Path=Score[0]}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <Label Content="Player X:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="80"/>
+                <TextBox x:Name="playerXBox" IsEnabled="False" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40"
+                         Text="{Binding Source={StaticResource gameDataSource}, Path=Score[1]}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                <Label Content="Games:" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="80"/>
+                <TextBox x:Name="gamesPlayedBox" IsEnabled="False" Margin="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="40"
+                         Text="{Binding Source={StaticResource gameDataSource}, Path=GameCounter}"/>
+            </StackPanel>
+            <ComboBox x:Name="playerOTypeBox"  Grid.Row="0" Grid.Column="2" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <ComboBoxItem Content="Human"/>
+                <ComboBoxItem Content="Easy"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="Hard"/>
+            </ComboBox>
+            <ComboBox x:Name="playerXTypeBox"  Grid.Row="1" Grid.Column="2" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <ComboBoxItem Content="Human"/>
+                <ComboBoxItem Content="Easy"/>
+                <ComboBoxItem Content="Medium"/>
+                <ComboBoxItem Content="Hard"/>
+            </ComboBox>
+            <Button x:Name="resetButton" Content="Reset" Grid.Row="0" Grid.Column="0" IsEnabled="False" Click="ResetButton_Click"/>
+            <Button x:Name="stopButton" Content="Stop" Grid.Row="1" Grid.Column="0" Click="StopButton_Click" IsEnabled="False"/>
+            <Button x:Name="startButton" Content="Start!" Grid.Row="2" Grid.Column="0" Click="StartButton_Click"/>
+            <ComboBox x:Name="gameTypeBox"  Grid.Row="3" Grid.Column="2" SelectedIndex="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <ComboBoxItem Content="Single"/>
+                <ComboBoxItem Content="Continuous"/>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="button11" Grid.Row="0" Grid.Column="0" Content="{Binding Path=GameMapInterface[0]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button12" Grid.Row="0" Grid.Column="1" Content="{Binding Path=GameMapInterface[1]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button13" Grid.Row="0" Grid.Column="2" Content="{Binding Path=GameMapInterface[2]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button21" Grid.Row="1" Grid.Column="0" Content="{Binding Path=GameMapInterface[3]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button22" Grid.Row="1" Grid.Column="1" Content="{Binding Path=GameMapInterface[4]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button23" Grid.Row="1" Grid.Column="2" Content="{Binding Path=GameMapInterface[5]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button31" Grid.Row="2" Grid.Column="0" Content="{Binding Path=GameMapInterface[6]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button32" Grid.Row="2" Grid.Column="1" Content="{Binding Path=GameMapInterface[7]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+            <Button x:Name="button33" Grid.Row="2" Grid.Column="2" Content="{Binding Path=GameMapInterface[8]}" Click="GameButton_Click" FontSize="50" FontFamily="Segoe UI Black" />
+        </Grid>
+    </Grid>
+</Window>
